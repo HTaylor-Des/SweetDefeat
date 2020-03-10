@@ -1,3 +1,12 @@
+html {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+}
 .banner {
     background-color: rgba(124, 223, 177, 0);
     border: none;
@@ -13,9 +22,6 @@
     text-transform: uppercase;
 }
 
-.BobOmb {
-    margin-top: 300px;
-}
 
 .banner:hover {
     background-color: rgba(165, 30, 86, 0.774);
@@ -38,9 +44,6 @@
 
 
 .Logo {
-    display: block;
-    margin: auto;
-    width: 3000px;
     height: 90px;
 }
 
@@ -63,11 +66,28 @@ header{
     order: -1;
 }
 
-@media (min-width: 992px)
+.BobOmb,
+    .HealthPack,
+    .MagicWand,
+    .PokeBall,
+    .Potion,
+    .RareCandy,
+    .Star {
+        width: 100px;
+        height: 100px;
+    }
+
+@media (min-width: 556px)
 {
-    .Logo  {
-        margin-right: 800px;
-        width: 700px;
+    .BobOmb,
+    .HealthPack,
+    .MagicWand,
+    .PokeBall,
+    .Potion,
+    .RareCandy,
+    .Star {
+        width: 200px;
         height: 200px;
     }
+    
 }
