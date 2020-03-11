@@ -4,9 +4,7 @@ html {
     margin: 0;
 }
 
-header {
-    text-align: center;
-}
+
 .banner {
     background-color: rgba(124, 223, 177, 0);
     border: none;
@@ -63,8 +61,14 @@ header{
     width: 100%;
     margin-bottom: 0%;
     left: 0;
-    order: -1;
+    z-index: 99;
 }
+
+body{
+    padding-top: 150px;
+}
+
+
 
 .BobOmb,
     .HealthPack,
@@ -88,6 +92,18 @@ header{
     .Star {
         width: 200px;
         height: 200px;
+    }
+
+    #products {
+        display: grid;
+        grid-template-columns: 200px 200px 200px;
+        grid-template-rows: auto auto auto;
+        margin-left: 480px;
+        grid-gap: 86px;
+    }
+
+    header {
+        text-align: center;
     }
     
 }
