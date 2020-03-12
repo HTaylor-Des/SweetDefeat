@@ -5,39 +5,11 @@ html {
 }
 
 
-.banner {
-    background-color: rgba(124, 223, 177, 0);
-    border: none;
-    color: white;
-    padding: 6px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-left: 89px;
-    margin-bottom: 26px;
-    border-radius: 12px;
-    text-transform: uppercase;
-}
-
-
-.banner:hover {
-    background-color: rgba(165, 30, 86, 0.774);
-    cursor: pointer;
-}
-
-
 .Logo {
     height: 90px;
+    margin-bottom: 37px;
 }
 
-
-.buttonholder {
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
-}
 
 header{
     background-color: rgb(199, 44, 109);
@@ -45,7 +17,7 @@ header{
     position: fixed;
     top: 0;
     width: 100%;
-    margin-bottom: 0%;
+    margin-bottom: 20%;
     left: 0;
     z-index: 99;
 }
@@ -74,16 +46,23 @@ body{
 
     /* Side Navigation Mobile */
 
-.sidenav {
-    padding-top: 15px;
-}
+
 
 .sidenav a {
     font-size: 18px;
 }
 
 @media (min-width: 556px)
+
+
 {
+
+    .Logo {
+        height: 111px;
+        margin-bottom: 35px;
+        width: 379px;
+
+    }
     .BobOmb,
     .HealthPack,
     .MagicWand,
@@ -103,6 +82,7 @@ body{
         grid-template-rows: auto auto auto;
         margin-left: 450px;
         grid-gap: 86px;
+        margin-top: 20px;
     }
 
     header {
@@ -116,7 +96,7 @@ body{
         height: 100%; /* Full-height: remove this if you want "auto" height */
         width: 250px; /* Set the width of the sidebar */
         position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-        z-index: 1; /* Stay on top */
+        z-index: -1; /* Stay on top */
         top: 0; /* Stay at the top */
         left: 0;
         background-color: rgb(120, 221, 120);
@@ -141,6 +121,18 @@ body{
     .sidenav a:hover {
         color: #327e3c;
         background-color: seagreen;
+    }
+
+    /* Footer Design */
+    footer {
+        background-color: rgb(199, 44, 109);
+        height: 90px;
+        width: 100%;
+        z-index: -3;
+        margin-top: 0 !important;
+        top: 190px;
+        right: 0 !important;
+        overflow: hidden;
     }
     
 }
