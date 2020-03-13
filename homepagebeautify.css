@@ -79,10 +79,11 @@ body{
     #products {
         display: grid;
         grid-template-columns: 200px 200px 200px;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto 28px auto auto;
         margin-left: 450px;
-        grid-gap: 86px;
+        grid-gap: 6%;
         margin-top: 20px;
+        margin-bottom: 340px;
     }
 
     header {
@@ -113,9 +114,9 @@ body{
         color: white;
         display: block;
         padding: 6px 30px;
-        text-align: center;
         text-transform: uppercase;
     }
+
 
     /* When you mouse over the navigation links, change their color */
     .sidenav a:hover {
@@ -133,6 +134,16 @@ body{
         top: 190px;
         right: 0 !important;
         overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
     }
+
+    .FooterInfo {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        text-align: center;
+    }
+
     
 }
