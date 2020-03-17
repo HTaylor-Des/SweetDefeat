@@ -13,7 +13,6 @@ html {
 
 header{
     background-color: rgb(199, 44, 109);
-    overflow: hidden;
     position: fixed;
     top: 0;
     width: 100%;
