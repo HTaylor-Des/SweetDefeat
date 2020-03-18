@@ -78,10 +78,10 @@ body{
     #products {
         display: grid;
         grid-template-columns: 200px 200px 200px;
-        grid-template-rows: auto 28px auto auto;
-        margin-left: 450px;
+        grid-template-rows: 170px 28px 170px;
+        padding-left: 360px;
         grid-gap: 6%;
-        margin-top: 20px;
+        margin-top: 44px;
         margin-bottom: 340px;
     }
 
@@ -96,7 +96,7 @@ body{
         height: 100%; /* Full-height: remove this if you want "auto" height */
         width: 250px; /* Set the width of the sidebar */
         position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-        z-index: -1; /* Stay on top */
+        z-index: 1; /* Stay on top */
         top: 0; /* Stay at the top */
         left: 0;
         background-color: rgb(120, 221, 120);
