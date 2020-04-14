@@ -98,7 +98,41 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56DZddVqYD5nQ" role="link">
+                    Add to Cart</button>
+
+                    <div id="error-message"></div>
+
+                    <script>
+                    (function() {
+                      var stripe = Stripe('pk_test_WUwtJ1mYd7091YAilAafV5qB00dXfD2AlP');
+                    
+                      var checkoutButton = document.getElementById('checkout-button-sku_H56DZddVqYD5nQ');
+                      checkoutButton.addEventListener('click', function () {
+                        // When the customer clicks on the button, redirect
+                        // them to Checkout.
+                        stripe.redirectToCheckout({
+                          items: [{sku: 'sku_H56DZddVqYD5nQ', quantity: 1}],
+                    
+                          // Do not rely on the redirect to the successUrl for fulfilling
+                          // purchases, customers may not always reach the success_url after
+                          // a successful payment.
+                          // Instead use one of the strategies described in
+                          // https://stripe.com/docs/payments/checkout/fulfillment
+                          successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
+                          cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
+                        })
+                        .then(function (result) {
+                          if (result.error) {
+                            // If `redirectToCheckout` fails due to a browser or network
+                            // error, display the localized error message to your customer.
+                            var displayError = document.getElementById('error-message');
+                            displayError.textContent = result.error.message;
+                          }
+                        });
+                      });
+                    })();
+                    </script>
                 </div>
               </div>
             </div>
@@ -112,7 +146,43 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56GHWrXOEUOAp"
+                  role="link">
+                  Add to Cart</button>
+
+                  <div id="error-message"></div>
+
+                  <script>
+                    (function() {
+                      var stripe = Stripe('pk_test_WUwtJ1mYd7091YAilAafV5qB00dXfD2AlP');
+                    
+                      var checkoutButton = document.getElementById('checkout-button-sku_H56GHWrXOEUOAp');
+                      checkoutButton.addEventListener('click', function () {
+                        // When the customer clicks on the button, redirect
+                        // them to Checkout.
+                        stripe.redirectToCheckout({
+                          items: [{sku: 'sku_H56GHWrXOEUOAp', quantity: 1}],
+                    
+                          // Do not rely on the redirect to the successUrl for fulfilling
+                          // purchases, customers may not always reach the success_url after
+                          // a successful payment.
+                          // Instead use one of the strategies described in
+                          // https://stripe.com/docs/payments/checkout/fulfillment
+                          successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
+                          cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
+                        })
+                        .then(function (result) {
+                          if (result.error) {
+                            // If `redirectToCheckout` fails due to a browser or network
+                            // error, display the localized error message to your customer.
+                            var displayError = document.getElementById('error-message');
+                            displayError.textContent = result.error.message;
+                          }
+                        });
+                      });
+                    })();
+                    </script>
+
                 </div>
               </div>
             </div>
@@ -128,38 +198,44 @@
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                   <button class="btn btn-sm btn-outline-secondary"  id="checkout-button-sku_H3WiGPT9qSBrbc"  role="link">
                   Add to Cart</button>
+                  
                   <div id="error-message"></div>
 
-<script>
-(function() {
-  var stripe = Stripe('pk_test_WUwtJ1mYd7091YAilAafV5qB00dXfD2AlP');
+                  <script>
 
-  var checkoutButton = document.getElementById('checkout-button-sku_H3WiGPT9qSBrbc');
-  checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
-    stripe.redirectToCheckout({
-      items: [{sku: 'sku_H3WiGPT9qSBrbc', quantity: 1}],
+                    /* Button for BobOmb */
+                    
+                  (function() {
+                    var stripe = Stripe('pk_test_WUwtJ1mYd7091YAilAafV5qB00dXfD2AlP');
+                  
+                    var checkoutButton = document.getElementById('checkout-button-sku_H3WiGPT9qSBrbc');
+                    checkoutButton.addEventListener('click', function () {
+                      // When the customer clicks on the button, redirect
+                      // them to Checkout.
+                      stripe.redirectToCheckout({
+                        items: [{sku: 'sku_H3WiGPT9qSBrbc', quantity: 1}],
+                  
+                        // Do not rely on the redirect to the successUrl for fulfilling
+                        // purchases, customers may not always reach the success_url after
+                        // a successful payment.
+                        // Instead use one of the strategies described in
+                        // https://stripe.com/docs/payments/checkout/fulfillment
+                        successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
+                        cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
+                      })
+                      .then(function (result) {
+                        if (result.error) {
+                          // If `redirectToCheckout` fails due to a browser or network
+                          // error, display the localized error message to your customer.
+                          var displayError = document.getElementById('error-message');
+                          displayError.textContent = result.error.message;
+                        }
+                      });
+                    });
+                  })();
+                  </script>
 
-      // Do not rely on the redirect to the successUrl for fulfilling
-      // purchases, customers may not always reach the success_url after
-      // a successful payment.
-      // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfillment
-      successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
-      cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
-    })
-    .then(function (result) {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-})();
-</script>
+
                 </div>
               </div>
             </div>
@@ -174,7 +250,43 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                  <button class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56IEfcbZTPzfi" role="link">
+                    Add to Cart </button>
+                    
+                    <div id="error-message"></div>
+
+                    <script>
+                    (function() {
+                      var stripe = Stripe('pk_test_WUwtJ1mYd7091YAilAafV5qB00dXfD2AlP');
+                    
+                      var checkoutButton = document.getElementById('checkout-button-sku_H56IEfcbZTPzfi');
+                      checkoutButton.addEventListener('click', function () {
+                        // When the customer clicks on the button, redirect
+                        // them to Checkout.
+                        stripe.redirectToCheckout({
+                          items: [{sku: 'sku_H56IEfcbZTPzfi', quantity: 1}],
+                    
+                          // Do not rely on the redirect to the successUrl for fulfilling
+                          // purchases, customers may not always reach the success_url after
+                          // a successful payment.
+                          // Instead use one of the strategies described in
+                          // https://stripe.com/docs/payments/checkout/fulfillment
+                          successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
+                          cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
+                        })
+                        .then(function (result) {
+                          if (result.error) {
+                            // If `redirectToCheckout` fails due to a browser or network
+                            // error, display the localized error message to your customer.
+                            var displayError = document.getElementById('error-message');
+                            displayError.textContent = result.error.message;
+                          }
+                        });
+                      });
+                    })();
+                    </script>
+
+
                 </div>
               </div>
             </div>
@@ -188,7 +300,41 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56DIt6ccVU6NA" role="link">
+                    Add to Cart</button
+                    
+                    ><div id="error-message"></div>
+
+                    <script>
+                    (function() {
+                      var stripe = Stripe('pk_test_WUwtJ1mYd7091YAilAafV5qB00dXfD2AlP');
+                    
+                      var checkoutButton = document.getElementById('checkout-button-sku_H56DIt6ccVU6NA');
+                      checkoutButton.addEventListener('click', function () {
+                        // When the customer clicks on the button, redirect
+                        // them to Checkout.
+                        stripe.redirectToCheckout({
+                          items: [{sku: 'sku_H56DIt6ccVU6NA', quantity: 1}],
+                    
+                          // Do not rely on the redirect to the successUrl for fulfilling
+                          // purchases, customers may not always reach the success_url after
+                          // a successful payment.
+                          // Instead use one of the strategies described in
+                          // https://stripe.com/docs/payments/checkout/fulfillment
+                          successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
+                          cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
+                        })
+                        .then(function (result) {
+                          if (result.error) {
+                            // If `redirectToCheckout` fails due to a browser or network
+                            // error, display the localized error message to your customer.
+                            var displayError = document.getElementById('error-message');
+                            displayError.textContent = result.error.message;
+                          }
+                        });
+                      });
+                    })();
+                    </script>
                 </div>
               </div>
             </div>
@@ -202,7 +348,39 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56GAqISiTveIa" role="link">Add to Cart</button>
+                  <div id="error-message"></div>
+
+                  <script>
+                  (function() {
+                    var stripe = Stripe('pk_test_WUwtJ1mYd7091YAilAafV5qB00dXfD2AlP');
+                  
+                    var checkoutButton = document.getElementById('checkout-button-sku_H56GAqISiTveIa');
+                    checkoutButton.addEventListener('click', function () {
+                      // When the customer clicks on the button, redirect
+                      // them to Checkout.
+                      stripe.redirectToCheckout({
+                        items: [{sku: 'sku_H56GAqISiTveIa', quantity: 1}],
+                  
+                        // Do not rely on the redirect to the successUrl for fulfilling
+                        // purchases, customers may not always reach the success_url after
+                        // a successful payment.
+                        // Instead use one of the strategies described in
+                        // https://stripe.com/docs/payments/checkout/fulfillment
+                        successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
+                        cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
+                      })
+                      .then(function (result) {
+                        if (result.error) {
+                          // If `redirectToCheckout` fails due to a browser or network
+                          // error, display the localized error message to your customer.
+                          var displayError = document.getElementById('error-message');
+                          displayError.textContent = result.error.message;
+                        }
+                      });
+                    });
+                  })();
+                  </script>
                 </div>
               </div>
             </div>
@@ -217,7 +395,39 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56FuDq2CU7npZ"
+                  role="link">Add to Cart</button><div id="error-message"></div>
+
+                  <script>
+                  (function() {
+                    var stripe = Stripe('pk_test_WUwtJ1mYd7091YAilAafV5qB00dXfD2AlP');
+                  
+                    var checkoutButton = document.getElementById('checkout-button-sku_H56FuDq2CU7npZ');
+                    checkoutButton.addEventListener('click', function () {
+                      // When the customer clicks on the button, redirect
+                      // them to Checkout.
+                      stripe.redirectToCheckout({
+                        items: [{sku: 'sku_H56FuDq2CU7npZ', quantity: 1}],
+                  
+                        // Do not rely on the redirect to the successUrl for fulfilling
+                        // purchases, customers may not always reach the success_url after
+                        // a successful payment.
+                        // Instead use one of the strategies described in
+                        // https://stripe.com/docs/payments/checkout/fulfillment
+                        successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
+                        cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
+                      })
+                      .then(function (result) {
+                        if (result.error) {
+                          // If `redirectToCheckout` fails due to a browser or network
+                          // error, display the localized error message to your customer.
+                          var displayError = document.getElementById('error-message');
+                          displayError.textContent = result.error.message;
+                        }
+                      });
+                    });
+                  })();
+                  </script>             
                 </div>
               </div>
             </div>
@@ -231,7 +441,41 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56FARJsb4QSJS"
+                  role="link">Add to Cart</button>
+                  <div id="error-message"></div>
+
+                  <script>
+                  (function() {
+                    var stripe = Stripe('pk_test_WUwtJ1mYd7091YAilAafV5qB00dXfD2AlP');
+                  
+                    var checkoutButton = document.getElementById('checkout-button-sku_H56FARJsb4QSJS');
+                    checkoutButton.addEventListener('click', function () {
+                      // When the customer clicks on the button, redirect
+                      // them to Checkout.
+                      stripe.redirectToCheckout({
+                        items: [{sku: 'sku_H56FARJsb4QSJS', quantity: 1}],
+                  
+                        // Do not rely on the redirect to the successUrl for fulfilling
+                        // purchases, customers may not always reach the success_url after
+                        // a successful payment.
+                        // Instead use one of the strategies described in
+                        // https://stripe.com/docs/payments/checkout/fulfillment
+                        successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
+                        cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
+                      })
+                      .then(function (result) {
+                        if (result.error) {
+                          // If `redirectToCheckout` fails due to a browser or network
+                          // error, display the localized error message to your customer.
+                          var displayError = document.getElementById('error-message');
+                          displayError.textContent = result.error.message;
+                        }
+                      });
+                    });
+                  })();
+                  </script>
+
                 </div>
               </div>
             </div>
@@ -245,7 +489,41 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56EFLxC9J0A0m" role="link">
+                    Add to Cart</button>
+                    
+                    <div id="error-message"></div>
+
+                    <script>
+                    (function() {
+                      var stripe = Stripe('pk_test_WUwtJ1mYd7091YAilAafV5qB00dXfD2AlP');
+                    
+                      var checkoutButton = document.getElementById('checkout-button-sku_H56EFLxC9J0A0m');
+                      checkoutButton.addEventListener('click', function () {
+                        // When the customer clicks on the button, redirect
+                        // them to Checkout.
+                        stripe.redirectToCheckout({
+                          items: [{sku: 'sku_H56EFLxC9J0A0m', quantity: 1}],
+                    
+                          // Do not rely on the redirect to the successUrl for fulfilling
+                          // purchases, customers may not always reach the success_url after
+                          // a successful payment.
+                          // Instead use one of the strategies described in
+                          // https://stripe.com/docs/payments/checkout/fulfillment
+                          successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
+                          cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
+                        })
+                        .then(function (result) {
+                          if (result.error) {
+                            // If `redirectToCheckout` fails due to a browser or network
+                            // error, display the localized error message to your customer.
+                            var displayError = document.getElementById('error-message');
+                            displayError.textContent = result.error.message;
+                          }
+                        });
+                      });
+                    })();
+                    </script>
                 </div>
               </div>
             </div>
