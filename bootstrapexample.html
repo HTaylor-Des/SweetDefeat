@@ -94,99 +94,17 @@
       <div class="row">
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top" class= "myImg" class="modal-content" id="img01" width="100%" height="225" src="magicwand.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></img>
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="magicwand.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></img>
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p><br>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
 
-                  <style>
-                    
-                    .myImg {
-                      border-radius: 5px;
-                      cursor: pointer;
-                      transition: 0.3s;
-                    }
-                    
-                    .myImg:hover {opacity: 0.7;}
-                    
-                    /* The Modal (background) */
-                    .modal {
-                      display: none; /* Hidden by default */
-                      position: fixed; /* Stay in place */
-                      z-index: 1; /* Sit on top */
-                      padding-top: 100px; /* Location of the box */
-                      left: 0;
-                      top: 0;
-                      width: 100%; /* Full width */
-                      height: 100%; /* Full height */
-                      overflow: auto; /* Enable scroll if needed */
-                      background-color: rgb(0,0,0); /* Fallback color */
-                      background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-                    }
-                    
-                    /* Modal Content (image) */
-                    .modal-content {
-                      margin: auto;
-                      display: block;
-                      width: 80%;
-                      max-width: 700px;
-                    }
-                    
-                    
-                    /* Add Animation */
-                    .modal-content, #caption {  
-                      -webkit-animation-name: zoom;
-                      -webkit-animation-duration: 0.6s;
-                      animation-name: zoom;
-                      animation-duration: 0.6s;
-                    }
-                    
-                    @-webkit-keyframes zoom {
-                      from {-webkit-transform:scale(0)} 
-                      to {-webkit-transform:scale(1)}
-                    }
-                    
-                    @keyframes zoom {
-                      from {transform:scale(0)} 
-                      to {transform:scale(1)}
-                    }
-                    
-                    /* The Close Button */
-                    .close {
-                      position: absolute;
-                      top: 15px;
-                      right: 35px;
-                      color: #f1f1f1;
-                      font-size: 40px;
-                      font-weight: bold;
-                      transition: 0.3s;
-                    }
-                    
-                    .close:hover,
-                    .close:focus {
-                      color: #bbb;
-                      text-decoration: none;
-                      cursor: pointer;
-                    }
-                    
-                    /* 100% Image Width on Smaller Screens */
-                    @media only screen and (max-width: 700px){
-                      .modal-content {
-                        width: 100%;
-                      }
-                    }
-                    </style>
 
-                  <!-- The Modal -->
-
-  <!-- <span class="close">&times;</span> -->
-
-                  <button type="button" class="btn btn-sm btn-outline-secondary" div id="myModal" class="modal">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#myModalID">View</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56DZddVqYD5nQ" role="link">
                     Buy</button>
 
-                    <div id="error-message"></div>
 
                     <script>
                     (function() {
@@ -194,15 +112,8 @@
                     
                       var checkoutButton = document.getElementById('checkout-button-sku_H56DZddVqYD5nQ');
                       checkoutButton.addEventListener('click', function () {
-                        // When the customer clicks on the button, redirect
-                        // them to Checkout.
                         stripe.redirectToCheckout({
                           items: [{sku: 'sku_H56DZddVqYD5nQ', quantity: 1}],
-                    
-                          // Do not rely on the redirect to the successUrl for fulfilling
-                          // purchases, customers may not always reach the success_url after
-                          // a successful payment.
-                          // Instead use one of the strategies described in
                           // https://stripe.com/docs/payments/checkout/fulfillment
                           successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
                           cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat',
@@ -218,30 +129,6 @@
                       });
                     })();
                     </script>
-
-                    <script>
-                      // Get the modal
-                      var modal = document.getElementById("myModal");
-
-                    // Get the image and insert it inside the modal - use its "alt" text as a caption
-                      var img = document.getElementById("myImg");
-                      var modalImg = document.getElementById("img01");
-                      img.onclick = function () {
-                        modal.style.display = "block";
-                        modalImg.src = this.src;
-                        captionText.innerHTML = this.alt;
-                      }
-
-                    // Get the <span> element that closes the modal
-                    var span = document.getElementsByClassName("close")[0];
-
-                    // When the user clicks on <span> (x), close the modal
-                    span.onclick = function () {
-                      modal.style.display = "none";
-                      }
-                   </script>
-
-
                 </div>
               </div>
             </div>
@@ -254,12 +141,9 @@
               <p class="card-text">Zombie hoards are a pain, and they can cause a lot of pain. Heal your HP by 100 hitpoints with this collection of medicinal items.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56GHWrXOEUOAp"
-                  role="link">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#myModalID" >View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56GHWrXOEUOAp" role="link">
                   Buy</button>
-
-                  <div id="error-message"></div>
 
                   <script>
                     (function() {
@@ -267,15 +151,8 @@
                     
                       var checkoutButton = document.getElementById('checkout-button-sku_H56GHWrXOEUOAp');
                       checkoutButton.addEventListener('click', function () {
-                        // When the customer clicks on the button, redirect
-                        // them to Checkout.
                         stripe.redirectToCheckout({
                           items: [{sku: 'sku_H56GHWrXOEUOAp', quantity: 1}],
-                    
-                          // Do not rely on the redirect to the successUrl for fulfilling
-                          // purchases, customers may not always reach the success_url after
-                          // a successful payment.
-                          // Instead use one of the strategies described in
                           // https://stripe.com/docs/payments/checkout/fulfillment
                           successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
                           cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
@@ -304,11 +181,10 @@
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p><br>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#myModalID">View</button>
                   <button class="btn btn-sm btn-outline-secondary"  id="checkout-button-sku_H3WiGPT9qSBrbc"  role="link">
-                  Buy</button>
-                  
-                  <div id="error-message"></div>
+                  Add to Cart</button>
+
 
                   <script>
 
@@ -358,11 +234,9 @@
               <p class="card-text">Do you want to be the very best? That no one ever was? Is catching them your real test? Then you're gonna need a pokeball! Catch em' all!</p><br>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#myModalID">View</button>
                   <button class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56IEfcbZTPzfi" role="link">
-                    Buy </button>
-                    
-                    <div id="error-message"></div>
+                    Add to Cart </button>
 
                     <script>
                     (function() {
@@ -408,11 +282,9 @@
               <p class="card-text">The hero doing too much damage? Is their DPS too high? Use this Health Potion and get back into the game!</p><br><br>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#myModalID">View</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56DIt6ccVU6NA" role="link">
-                    Buy</button
-                    
-                    ><div id="error-message"></div>
+                    Add to Cart</button>
 
                     <script>
                     (function() {
@@ -456,9 +328,9 @@
               <p class="card-text">Is your Magikarp taking too long to evolve? Well, why wait?! Stuff your pokemon with rare candies and get them to evolve within mere minutes! Now available in blue raspberry flavor!</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56GAqISiTveIa" role="link">Buy</button>
-                  <div id="error-message"></div>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#myModalID">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56GAqISiTveIa" role="link">
+                    Add to Cart</button>
 
                   <script>
                   (function() {
@@ -503,9 +375,9 @@
               <p class="card-text">Just want to bypass everything and look like a flashing rainbow while doing it. Be completely invincible for one minute and do it in style!</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56FuDq2CU7npZ"
-                  role="link">Buy</button><div id="error-message"></div>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#myModalID">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56FuDq2CU7npZ"role="link">
+                    Add to Cart</button>
 
                   <script>
                   (function() {
@@ -549,10 +421,9 @@
               <p class="card-text">Wastelands getting you down? Deathclaws messing up your plans? Zap that thirst with a Nuka Cola and show those boys and ghouls whose boss.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56FARJsb4QSJS"
-                  role="link">Buy</button>
-                  <div id="error-message"></div>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#myModalID">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56FARJsb4QSJS" role="link">
+                    Add to Cart</button>
 
                   <script>
                   (function() {
@@ -597,11 +468,9 @@
               <p class="card-text">Go from 0 HP to 100 with this amazing product. The triforce awaits!</p><br><br>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#myModalID">View</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" id="checkout-button-sku_H56EFLxC9J0A0m" role="link">
-                    Buy</button>
-                    
-                    <div id="error-message"></div>
+                    Add to Cart</button>
 
                     <script>
                     (function() {
