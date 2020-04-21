@@ -79,18 +79,7 @@
         <table class="table table-striped">
             <tr>
             <div id="emptyDiv">
-                <td>
-
-                </td>
-              </div>
-              </td>
-              <td>Column 2</td>
-            </tr>
-            <tr>
-              <td>Column 1</td>
-              <td>Column 2</td>
-            </tr>
-          </table>
+                
 
       </div>
 
@@ -110,9 +99,9 @@
 <script>
     (function() {
 
-        // $("#emptyDiv").html("<td>" + document.write(items[0]));
-
         // $("#emptyDiv").html("<td>" + items.getJSONArray(0));
+
+            
 
 
         var stripe = Stripe('pk_test_WUwtJ1mYd7091YAilAafV5qB00dXfD2AlP');
@@ -123,9 +112,23 @@
 
         var items = readCart();
 
+        console.log(items);
+
+        //$.each(items, function (index, value) {
+        //    $('#emptyDiv').html('<tr> <td>' + value.sku + "</td></tr>");
+        //});
+
+        let table = "<table>";
+
+        $.each(items, function (index, value) {
+        table += "<tr><td>" + value.name + "</td></tr>";
+        });
+        table += "</table>";
+        $('#emptyDiv').html(table);
+
         checkoutButton.addEventListener('click', function () {
             stripe.redirectToCheckout({
-                items: [{sku: checkoutButton[i].data("sku"), quantity: 1}],
+                items: [{sku: checkoutButton.data("sku"), quantity: 1}],
                 successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
                 cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
 
