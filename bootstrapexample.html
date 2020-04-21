@@ -27,15 +27,30 @@
         background-color: #feedb3;
       }
 
+      #flashMessage {
+        color: white;
+        background-color: #64ce83;
+        padding: 15px;
+        border-radius: 5px;
+        display: block;
+        width: calc(100% - 100px);
+        margin-bottom: 40px;
+}
+
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
         }
+
       }
     </style>
   </head>
 
   <body>
+    <!--<div id="flashMessage">
+      Item added!
+    </div> -->
+
     <header>
       <div class="collapse bg-info" id="navbarHeader">
         <div class="container">
@@ -78,6 +93,7 @@
           <p class="lead text-muted">Can you not pass that level? Is the hero using too OP of gear? The evil dragon, or demon turtle, stopping you from getting your prince or princess? We have what you need. You can't nerf this!</p>
         </div>
       </section>
+
 
       <div class="album py-5 bg-light">
         <div class="container">
@@ -496,6 +512,11 @@
     }
 
     alert(document.cookie);
+
+    $('#flashMessage').hide()
+    .slideDown(1000)
+    .delay(3000)
+    .slideUp();
   </script>
 
 </html>

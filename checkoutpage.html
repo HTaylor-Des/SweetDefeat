@@ -78,10 +78,11 @@
 
         <table class="table table-striped">
             <tr>
-              <td>Column 1
-                  <script>
-                      document.write();
-                  </script>
+            <div id="emptyDiv">
+                <td>
+
+                </td>
+              </div>
               </td>
               <td>Column 2</td>
             </tr>
@@ -108,7 +109,15 @@
 
 <script>
     (function() {
+
+        // $("#emptyDiv").html("<td>" + document.write(items[0]));
+
+        // $("#emptyDiv").html("<td>" + items.getJSONArray(0));
+
+
         var stripe = Stripe('pk_test_WUwtJ1mYd7091YAilAafV5qB00dXfD2AlP');
+
+        //The checkout button above is being found
 
         var checkoutButton = document.getElementById('checkout');
 
@@ -116,7 +125,7 @@
 
         checkoutButton.addEventListener('click', function () {
             stripe.redirectToCheckout({
-                items: [{sku: checkoutButtons[i].data("sku"), quantity: 1}],
+                items: [{sku: checkoutButton[i].data("sku"), quantity: 1}],
                 successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
                 cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
 
@@ -132,8 +141,6 @@
                     }
                 });
         });
-
-        document.write(items);
     })();
 
 
@@ -147,6 +154,8 @@
         console.log(json_str);
         return JSON.parse(json_str);
     }
+
+    console.log(readCart)
 
 
     // Cookie functions
