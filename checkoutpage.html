@@ -128,7 +128,7 @@
 
         checkoutButton.addEventListener('click', function () {
             stripe.redirectToCheckout({
-                items: [{sku: checkoutButton.data("sku"), quantity: 1}],
+                items: readCart(),
                 successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
                 cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
 
@@ -157,8 +157,6 @@
         console.log(json_str);
         return JSON.parse(json_str);
     }
-
-    console.log(readCart)
 
 
     // Cookie functions
