@@ -77,10 +77,13 @@
         <!-- List items in cart here with a table -->
 
         <table class="table table-striped">
-            <tr>
+            <thead>
+                <tr>
+                    <th scope="col">Item</th>
+                </tr>
+            </thead>
             <div id="emptyDiv">
-                
-
+        </table>
       </div>
 
       <button id="checkout" class="btn btn-primary">Checkout</button>
@@ -98,10 +101,7 @@
 
 <script>
     (function() {
-
-        // $("#emptyDiv").html("<td>" + items.getJSONArray(0));
-
-            
+           
 
 
         var stripe = Stripe('pk_test_WUwtJ1mYd7091YAilAafV5qB00dXfD2AlP');
@@ -113,22 +113,21 @@
         var items = readCart();
 
         console.log(items);
-
-        //$.each(items, function (index, value) {
-        //    $('#emptyDiv').html('<tr> <td>' + value.sku + "</td></tr>");
-        //});
-
+        
         let table = "<table>";
+        let tbody = "<tbody>";
 
         $.each(items, function (index, value) {
-        table += "<tr><td>" + value.name + "</td></tr>";
+        tbody += "<tr><td>" + value.name + "</td></tr>";
         });
-        table += "</table>";
-        $('#emptyDiv').html(table);
+        tbody += "</tbody>";
+        $('#emptyDiv').html(tbody);
+
+        
 
         checkoutButton.addEventListener('click', function () {
             stripe.redirectToCheckout({
-                items: readCart(),
+                items: giveStripe(readCart()),
                 successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
                 cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
 
@@ -146,6 +145,9 @@
         });
     })();
 
+ 
+    
+
 
 
     // Cart functions
@@ -156,6 +158,14 @@
         var json_str = getCookie('cart');
         console.log(json_str);
         return JSON.parse(json_str);
+    }
+
+    function giveStripe(items) {
+      var StripeItems = [];
+      $.each( items, function( index, value ) {
+         StripeItems.push({'sku' : value.sku, 'quantity' : value.quantity});
+      });
+      return StripeItems;
     }
 
 
@@ -171,6 +181,8 @@
         }
         return null;
     }
+
+    console.log(giveStripe(readCart()));
 
 </script>
 
