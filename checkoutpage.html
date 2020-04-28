@@ -88,7 +88,7 @@
 
       <button id="emptyCart" class="btn btn-secondary">Empty Cart</button>
 
-      <button id="checkout" class="btn btn-primary">Checkout</button>
+      <button id="checkout" class="btn btn-info">Checkout</button>
     </div>
   </div>
 </main>
@@ -149,7 +149,9 @@
     //Remove cookie
 
     emptyCart.addEventListener('click', function() {
-    Cookies.remove('cart');
+      Cookies.remove('cart');
+      location.reload();
+      return false;
     })
 
 
