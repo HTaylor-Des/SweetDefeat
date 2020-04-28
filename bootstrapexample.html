@@ -489,7 +489,6 @@
       return StripeItems;
     }
 
-    // items.splice(100);
 
     function addToCart(sku, name, cost, quantity) {
         var cart = readCart();
@@ -522,6 +521,7 @@
         }
         document.cookie = name + "=" + (value || "")  + expires + "; path=/";
     }
+    
     function getCookie(name) {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
