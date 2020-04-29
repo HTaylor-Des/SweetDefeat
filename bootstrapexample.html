@@ -28,13 +28,13 @@
       }
 
       #flashMessage {
-        color: white;
-        background-color: #64ce83;
+        color: rgb(255, 255, 255);
+        background-color: #ce64a5;
         padding: 15px;
-        border-radius: 5px;
         display: block;
-        width: calc(100% - 100px);
-        margin-bottom: 40px;
+        position: fixed;
+        z-index: 20;
+        border-radius: 5px;
 }
 
       @media (min-width: 768px) {
@@ -47,9 +47,9 @@
   </head>
 
   <body>
-    <!--<div id="flashMessage">
+    <div id="flashMessage">
       Item added!
-    </div> -->
+    </div>
 
     <header>
       <div class="collapse bg-info" id="navbarHeader">
@@ -465,6 +465,10 @@
         var quantity = $(this).data('quantity');
 
         addToCart(sku, name, cost, quantity);
+        $('#flashMessage').hide()
+          .slideDown(1000)
+          .delay(3000)
+          .slideUp();
     });
 
     
@@ -521,7 +525,7 @@
         }
         document.cookie = name + "=" + (value || "")  + expires + "; path=/";
     }
-    
+
     function getCookie(name) {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
@@ -534,9 +538,6 @@
     }
 
     $('#flashMessage').hide()
-    .slideDown(1000)
-    .delay(3000)
-    .slideUp();
 
    
   </script>
