@@ -475,19 +475,21 @@
     // Cart functions
 
       function search(sku, items) {
+        if (items !== null) {
             for (var i = 0; i < items.length; i++) {
                if(items[i].sku === sku) {
-                 return items.quantity ++;
+                 return true;
+            } else {
+              return false;
             }
           }
         }
-
+      }
 
     function giveStripe(items) {
       var StripeItems = [];
       $.each( items, function( index, value ) {
          StripeItems.push({'sku' : index.sku, 'quantity' : index.quantity});
-         search();
          console.log(search());
       });
       return StripeItems;
@@ -496,12 +498,22 @@
 
     function addToCart(sku, name, cost, quantity) {
         var cart = readCart();
-        var newItem = { 'sku' : sku, 'name' : name, 'cost' : cost, 'quantity' : quantity };
+        if (search(sku, cart)){
+          alert('items already in cart');
+          for (var i = 0; i < cart.length; i++) {
+               if(cart[i].sku === sku) {
+                 cart[i].quantity++;
+            }
+          }
+        }
+        else {
+          var newItem = { 'sku': sku, 'name': name, 'cost': cost, 'quantity': quantity };
 
-        if ( cart === null )
+          if (cart === null)
             cart = [];
-
-        cart.push(newItem);
+            cart.push(newItem);          
+        }
+      
         var json_str = JSON.stringify(cart);
 
         setCookie(cartCookieName, json_str, cartDuration);
