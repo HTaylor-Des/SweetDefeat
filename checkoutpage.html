@@ -153,7 +153,7 @@
 
         if (sum >= 999000)
         {
-          alert("That's too expensive! We can't handle that large of an order, sorry! Orders must be less than $999,000!");
+          alert("That's too expensive! We can't handle that large of an order, sorry! Orders must be less than $999,999.99!");
         }
 
         document.getElementById("totalAmounts").innerHTML = sum;
@@ -163,13 +163,15 @@
 
 
         checkoutButton.addEventListener('click', function () {
+            if (sum >= 999999) {
+              alert("That's too expensive! We can't handle that large of an order, sorry! Orders must be less than $999,999.99!");
+            }
             stripe.redirectToCheckout({
                 items: giveStripe(readCart()),
                 successUrl: 'https://github.com/HTaylor-Des/SweetDefeat/success',
                 cancelUrl: 'https://github.com/HTaylor-Des/SweetDefeat/canceled',
 
                 //can't create successful URLs due to not having website on a server
-
             })
                 .then(function (result) {
                     if (result.error) {
