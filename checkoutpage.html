@@ -151,6 +151,11 @@
           console.log(sum);
         });
 
+        if (sum >= 999000)
+        {
+          alert("That's too expensive! We can't handle that large of an order, sorry! Orders must be less than $999,000!");
+        }
+
         document.getElementById("totalAmounts").innerHTML = sum;
 
 
