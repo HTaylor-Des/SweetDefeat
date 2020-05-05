@@ -59,7 +59,7 @@
   <div class="navbar navbar-dark bg-info shadow-sm">
     <div class="container d-flex justify-content-between">
       <a href="bootstrapexample.html" class="navbar-brand d-flex align-items-center">
-        <img src="sweetdefeatskull.png" width="50" height="50" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></img>
+        <img src="https://imgur.com/tUNmaxs.png" width="50" height="50" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></img>
         <strong>Sweet Defeat</strong>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,11 +84,13 @@
                     <th scope="col">Cost</th>
                 </tr>
             </thead>
+        </table>
             <table class="table">
-            <div id="emptyDiv">
-            </table>
+           <th scope="col"> <div id="emptyDiv"></th>
+          </table>
+          <table class="table">
             <tr>
-              Total: <p id="totalAmounts"></p>
+              Total: <span id="totalAmounts"></span>
             </tr><br>
         </table>
         <br>
@@ -126,16 +128,20 @@
         
         let table = "<table>";
         let tbody = "<tbody>";
-        let thscope ="<th scope ='row'>";
+        let thscope ="<th scope ='col'>";
 
+        // Loop through each item to display the name and quantity as well as the total of that specific item
 
         $.each(items, function (index, value) {
         var quantityTotal = value.cost * value.quantity;
-        tbody += "<tr><td>" + value.name + "</td>" + thscope + "<td>" + value.quantity + "</td><td>" + quantityTotal + "</td></tr>";
+        tbody += "<tr><td>" + value.name + "</td><td>" + value.quantity + "</td><td>" + quantityTotal + "</td></tr>";
         });
         tbody += "</tbody>";
         $('#emptyDiv').html(tbody);
 
+        // Loop through each total of each item to create a whole total
+
+        
 
         var sum = 0;
 
@@ -147,6 +153,8 @@
 
         document.getElementById("totalAmounts").innerHTML = sum;
 
+
+        // Send array to Stripe
 
 
         checkoutButton.addEventListener('click', function () {
