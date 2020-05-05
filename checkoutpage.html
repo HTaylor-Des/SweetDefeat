@@ -32,6 +32,7 @@
         font-size: 3.5rem;
       }
     }
+
   </style>
 </head>
 
@@ -75,7 +76,7 @@
 
       <div class="cart">
         <!-- List items in cart here with a table -->
-
+        <div class="table-responsive-xl">
         <table class="table">
             <thead>
                 <tr>
@@ -85,14 +86,15 @@
                 </tr>
             </thead>
         </table>
-            <table class="table">
-           <th scope="col"> <div id="emptyDiv"></th>
+          <table class="table">
+             <th scope="row"> <div id="emptyDiv"></th>
           </table>
           <table class="table">
             <tr>
               Total: <span id="totalAmounts"></span>
             </tr><br>
         </table>
+      </div>
         <br>
       </div>
 
@@ -128,13 +130,13 @@
         
         let table = "<table>";
         let tbody = "<tbody>";
-        let thscope ="<th scope ='col'>";
+        let thscope ="<th scope ='row'>";
 
         // Loop through each item to display the name and quantity as well as the total of that specific item
 
         $.each(items, function (index, value) {
         var quantityTotal = value.cost * value.quantity;
-        tbody += "<tr><td>" + value.name + "</td><td>" + value.quantity + "</td><td>" + quantityTotal + "</td></tr>";
+        tbody += "<tr><td>" + value.name + "</td><td>" + value.quantity + "</td><td>" + quantityTotal + "</td></tr></th>";
         });
         tbody += "</tbody>";
         $('#emptyDiv').html(tbody);
